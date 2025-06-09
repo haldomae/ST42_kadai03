@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -65,6 +67,22 @@ private fun MainContent(){
             label = "体重(kg)",
             placeholder = "60"
         )
+        Spacer(modifier = Modifier.height(30.dp))
+        // 計算するボタン
+        Button(
+            onClick = {},
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFFF85F6F)
+            )
+        ) {
+            Text(
+                text = "計算する",
+                color = Color.White,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
     }
 }
 
