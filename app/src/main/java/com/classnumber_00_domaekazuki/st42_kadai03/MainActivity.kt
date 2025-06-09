@@ -32,19 +32,19 @@ import androidx.lifecycle.ViewModel
 import com.classnumber_00_domaekazuki.st42_kadai03.ui.theme.ST42_kadai03Theme
 
 class MainActivity : ComponentActivity() {
-    private val viewMode by viewModels<MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             ST42_kadai03Theme {
-                MainContent()
+                MainContent(viewModel = viewModel)
             }
         }
     }
 }
 @Composable
-private fun MainContent(){
+private fun MainContent(viewModel: MainViewModel){
     Column(
         horizontalAlignment = Alignment.Start,
         modifier = Modifier.padding(20.dp)
@@ -58,16 +58,20 @@ private fun MainContent(){
         Spacer(modifier = Modifier.height(20.dp))
         // 身長入力エリア
         PinkLabelTextField(
-            value = "",
-            onValueChange = {},
+            value = viewModel.height,
+            onValueChange = {
+                viewModel.height = it
+            },
             label = "身長(cm)",
             placeholder = "170"
         )
         Spacer(modifier = Modifier.height(20.dp))
         // 体重入力エリア
         PinkLabelTextField(
-            value = "",
-            onValueChange = {},
+            value = viewModel.weight,
+            onValueChange = {
+                viewModel.weight = it
+            },
             label = "体重(kg)",
             placeholder = "60"
         )
