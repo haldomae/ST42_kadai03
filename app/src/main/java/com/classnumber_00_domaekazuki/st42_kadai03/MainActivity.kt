@@ -50,16 +50,42 @@ private fun MainContent(){
             fontWeight = FontWeight.ExtraBold
         )
         Spacer(modifier = Modifier.height(20.dp))
+        // 身長入力エリア
+        PinkLabelTextField(
+            value = "",
+            onValueChange = {},
+            label = "身長(cm)",
+            placeholder = "170"
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        // 体重入力エリア
+        PinkLabelTextField(
+            value = "",
+            onValueChange = {},
+            label = "体重(kg)",
+            placeholder = "60"
+        )
+    }
+}
+
+@Composable
+private fun PinkLabelTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    placeholder: String
+){
+    Column {
         Text(
-            text = "身長(cm)",
+            text = label,
             color = Color(0xFFF85F6F),
             fontWeight = FontWeight.Bold
         )
         TextField(
             modifier = Modifier.fillMaxWidth(),
-            value = "",
-            onValueChange = {},
-            placeholder = { Text(text = "170") },
+            value = value,
+            onValueChange = onValueChange,
+            placeholder = { Text(text = placeholder) },
             colors = TextFieldDefaults.colors(
                 unfocusedContainerColor = Color.Transparent, // フォーカスされていない時の背景色
                 focusedContainerColor = Color.Transparent    // フォーカスされている時の背景色
