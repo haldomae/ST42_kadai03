@@ -5,14 +5,22 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -24,7 +32,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ST42_kadai03Theme {
-
+                MainContent()
             }
         }
     }
@@ -40,6 +48,26 @@ private fun MainContent(){
             text = "BMI計算機",
             fontSize = 26.sp,
             fontWeight = FontWeight.ExtraBold
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        Text(
+            text = "身長(cm)",
+            color = Color(0xFFF85F6F),
+            fontWeight = FontWeight.Bold
+        )
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = "",
+            onValueChange = {},
+            placeholder = { Text(text = "170") },
+            colors = TextFieldDefaults.colors(
+                unfocusedContainerColor = Color.Transparent, // フォーカスされていない時の背景色
+                focusedContainerColor = Color.Transparent    // フォーカスされている時の背景色
+            ),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Number),
+            singleLine = true
+
         )
     }
 }
