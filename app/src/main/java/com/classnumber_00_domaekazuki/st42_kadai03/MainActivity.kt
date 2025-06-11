@@ -78,7 +78,9 @@ private fun MainContent(viewModel: MainViewModel){
         Spacer(modifier = Modifier.height(30.dp))
         // 計算するボタン
         Button(
-            onClick = {},
+            onClick = {
+                viewModel.calcBMI()
+            },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFFF85F6F)
@@ -95,7 +97,7 @@ private fun MainContent(viewModel: MainViewModel){
 
         // 結果表示テキスト
         Text(
-            text = "あなたのBMIは00.0です",
+            text = "あなたのBMIは${viewModel.bmi}です",
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center,
             color = Color.Gray,
