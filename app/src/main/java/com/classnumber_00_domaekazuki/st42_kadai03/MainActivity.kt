@@ -65,6 +65,7 @@ fun MainContent(viewModel: MainViewModel){
             // 内容が変わった時に実行される
             onValueChange = {
                 viewModel.num = it
+                viewModel.calc()
             },
             colors = TextFieldDefaults.colors(
                 // フォーカスされていないときの色
@@ -72,6 +73,10 @@ fun MainContent(viewModel: MainViewModel){
                 // フォーカルされている時の色
                 focusedContainerColor = Color.Transparent
             )
+        )
+        Text(
+            text = viewModel.result,
+            fontWeight = FontWeight.ExtraBold
         )
     }
 

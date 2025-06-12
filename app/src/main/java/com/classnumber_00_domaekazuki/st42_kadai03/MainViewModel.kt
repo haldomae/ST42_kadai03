@@ -7,4 +7,8 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
     var num by mutableStateOf("")
+    var result = "計算結果"
+    fun calc(){
+        result = "ここに結果がでますよ"
+    }
 }
