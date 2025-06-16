@@ -62,6 +62,7 @@ private fun MainContent(viewModel: MainViewModel){
             // 内容が変わった時に実行される
             onValueChange = {
                 viewModel.num = it
+                viewModel.calc()
             },
             // 入力欄の色を変更
             colors = TextFieldDefaults.colors(
@@ -70,6 +71,10 @@ private fun MainContent(viewModel: MainViewModel){
                 // フォーカスされている時の色
                 focusedContainerColor = Color.Transparent
             )
+        )
+        Text(
+            text = viewModel.result,
+            fontWeight = FontWeight.ExtraBold
         )
     }
 }
